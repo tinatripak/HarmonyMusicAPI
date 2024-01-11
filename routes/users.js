@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const admin = require("../config/firebase.config");
+const admin = require("../config/firebase.config.js");
 const user = require("../models/user");
 const { UserClass } = require("../classes/userClass");
 

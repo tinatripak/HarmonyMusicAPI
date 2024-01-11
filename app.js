@@ -4,9 +4,14 @@ require("dotenv/config");
 const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const bodyParser = require("body-parser");
+
 const corsOptions = {
-  origin: true,
+  origin: "https://harmony-music-client.vercel.app",
+  methods: "GET, POST, PUT, DELETE, OPTIONS",
+  allowedHeaders: "Access-Control-Allow-Origin, Content-Type, Authorization",
   credentials: true,
+  maxAge: 86400,
+  optionsSuccessStatus: 204,
   sameSite: "none",
   secure: true,
 };

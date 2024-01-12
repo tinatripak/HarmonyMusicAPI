@@ -5,6 +5,7 @@ const { UserClass } = require("../classes/userClass");
 
 router.get("/login", (req, res) => {
   (async () => {
+    console.log(req.headers)
     if (!req.headers.authorization) {
       return res.status(500).send({ message: "Invalid Token" });
     }

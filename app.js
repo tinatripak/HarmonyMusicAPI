@@ -5,20 +5,15 @@ const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const bodyParser = require("body-parser");
 
-const corsOptions = {
-  origin: "https://harmony-music-client.vercel.app",
-  methods: "GET, POST, PUT, DELETE, OPTIONS",
-  allowedHeaders: "Access-Control-Allow-Origin, Content-Type, Authorization",
-  credentials: true,
-  maxAge: 86400,
-  optionsSuccessStatus: 204,
-  sameSite: "none",
-  secure: true,
-};
+app.use(cors({ origin: true }));
+
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(corsOptions));
 app.use(express.json());
 
 const userRoute = require("./routes/users");
